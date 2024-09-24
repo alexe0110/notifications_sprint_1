@@ -1,0 +1,307 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.16">
+  <diagram name="Страница — 1" id="3MjIOjb0I8iYLQH-6i7e">
+    <mxGraphModel dx="2494" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-107" value="&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;" style="rounded=0;whiteSpace=wrap;html=1;opacity=40;fillColor=#dae8fc;strokeColor=#6c8ebf;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" parent="1" vertex="1">
+          <mxGeometry x="-780" y="90" width="610" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-43" value="" style="rounded=0;whiteSpace=wrap;html=1;opacity=40;fillColor=#d5e8d4;strokeColor=#85D9F2;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
+          <mxGeometry x="17" y="70" width="633" height="665" as="geometry" />
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-2" value="&lt;div style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;Notifications API&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot; face=&quot;Times New Roman&quot;&gt;(&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;FastAPI&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="95" y="131" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="O2XLF91sm4XnASsfcQMH-6" target="O2XLF91sm4XnASsfcQMH-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-10" value="&lt;font face=&quot;Times New Roman&quot;&gt;consume&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="O2XLF91sm4XnASsfcQMH-8" vertex="1" connectable="0">
+          <mxGeometry x="0.0373" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-3" value="Kafka" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;rotation=0;fillColor=#f8cecc;strokeColor=#b85450;direction=north;fontFamily=Times New Roman;" parent="1" vertex="1">
+          <mxGeometry x="418" y="131" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-5" value="&lt;p style=&quot;line-height: 0%;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;produce&lt;/font&gt;&lt;/p&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="O2XLF91sm4XnASsfcQMH-2" target="O2XLF91sm4XnASsfcQMH-3" edge="1">
+          <mxGeometry x="0.0538" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="O2XLF91sm4XnASsfcQMH-6" target="Xp5XtxFnslbDERg0TUqt-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-5" value="&lt;p style=&quot;line-height: 0%;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Получение инфы&amp;nbsp;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 0%;&quot;&gt;&lt;font face=&quot;i1yOALNqsWRkdCRLMUk1&quot;&gt;о пользователе по user_id&lt;/font&gt;&lt;/p&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=default;labelBorderColor=none;" parent="Xp5XtxFnslbDERg0TUqt-4" vertex="1" connectable="0">
+          <mxGeometry x="-0.3314" relative="1" as="geometry">
+            <mxPoint y="5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-6" value="&lt;div&gt;&lt;b&gt;Worker&lt;/b&gt;&lt;/div&gt;Сервис который шлет письма по SMTP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Times New Roman;" parent="1" vertex="1">
+          <mxGeometry x="428" y="291" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-7" value="Пользователи" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="720" y="315" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="O2XLF91sm4XnASsfcQMH-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0.1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="O2XLF91sm4XnASsfcQMH-6" target="O2XLF91sm4XnASsfcQMH-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-2" value="&lt;div style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;Admin Panel&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;(Flask/Django/FastAPI)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="95" y="526" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-3" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;&lt;b&gt;Auth API&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;(из прошлого спринта)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#3D506B;dashed=1;fillStyle=auto;opacity=50;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="433" y="756" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-6" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Use Cases&lt;br&gt;&lt;/h1&gt;&lt;h4 style=&quot;line-height: 80%;&quot;&gt;&lt;font face=&quot;MONh_1VmK5U7bihViy1n&quot;&gt;- Создание уведомления через админку&lt;/font&gt;&lt;/h4&gt;&lt;div style=&quot;line-height: 110%;&quot;&gt;&lt;font face=&quot;MONh_1VmK5U7bihViy1n&quot;&gt;Менеджер создает уведомление, описывает его, задает периодичность, выбирает шаблон, сохраняет.&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;background-color: initial; font-family: NSvxdNzsFa0G7ltl-WXG; text-align: center;&quot;&gt;&lt;b&gt;Event Generator &lt;/b&gt;вычитывает данные из БД, создает крон джобу если она периодическая, если нет то сразу выполняет запрос в&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial;&quot;&gt;&lt;b&gt;Notifications API &lt;/b&gt;на отправку уведомления. Апи кладет уведомление в очередь в кафку, в топик согласно приоритету. Сервис&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial;&quot;&gt;Worker&amp;nbsp;&lt;/b&gt;&lt;span style=&quot;background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center;&quot;&gt;вычитывает из кафки, валидирует шаблон, рендерит его используя данные из сервиса&amp;nbsp;&lt;/span&gt;&lt;b style=&quot;background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center;&quot;&gt;Auth API&lt;/b&gt;&lt;span style=&quot;background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center;&quot;&gt;&amp;nbsp;и отправляет уведомления пользователям&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 110%;&quot;&gt;&lt;span style=&quot;background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;h4 style=&quot;line-height: 120%;&quot;&gt;- &lt;font face=&quot;Times New Roman&quot;&gt;Уведомление на основе контента из&amp;nbsp;&lt;/font&gt;&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial; font-size: 12px;&quot;&gt;UGC&lt;/b&gt;&lt;/h4&gt;&lt;div style=&quot;line-height: 120%;&quot;&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial; font-size: 12px;&quot;&gt;&lt;u&gt;Предусловие:&lt;/u&gt; существует кронджоба(задача по расписанию) на отправку указанных событий с определенной периодичностью&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial; font-size: 12px;&quot;&gt;Сервис&lt;/span&gt;&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial; font-size: 12px;&quot;&gt;&amp;nbsp;&lt;/b&gt;&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial;&quot;&gt;UGC &lt;/b&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; background-color: initial;&quot;&gt;записывает события в редис(например, на рецензию пользователя поставили лайк). Воркер при рендере уведомления идет в редис и на основе полученных там данных составляет отчет для пользователя(уведомление)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="790" y="236" width="360" height="350" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-8" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Типы&lt;/font&gt;&lt;/h1&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;ul style=&quot;&quot;&gt;&lt;li style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b style=&quot;font-weight: bold; background-color: initial;&quot;&gt;&lt;u&gt;Ручные&lt;/u&gt;&lt;/b&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;b&gt; - &lt;/b&gt;менеджер создает рассылку, через админ панель&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;&lt;u&gt;Автоматические&lt;/u&gt; - &lt;/b&gt;по наступлению события&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;ul&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;&lt;u&gt;Периодические&lt;/u&gt;&lt;/b&gt; -&amp;nbsp;отправляются по расписанию, например, рассылки раз в неделю&lt;/font&gt;&lt;br&gt;&lt;/span&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;&lt;u&gt;Единичные&lt;/u&gt;&lt;/b&gt; - когда происходит какое-то изменение на сайте и об этом сообщают пользователям.&lt;br&gt;&lt;/font&gt;&lt;/span&gt;&lt;/li&gt;&lt;ul&gt;&lt;li style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;&lt;u&gt;Мгновенные&lt;/u&gt;&lt;/b&gt; - отправляются как только произошло событие (например, чек об оплате)&lt;/font&gt;&lt;/li&gt;&lt;li style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;&lt;u&gt;Отложенные&lt;/u&gt;&lt;/b&gt; - отправляются с определенной периодичностью (например,&amp;nbsp; раз в день список самых популярных сегодня фильмов)&lt;/font&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/span&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="629" y="20" width="521" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="Xp5XtxFnslbDERg0TUqt-13" target="O2XLF91sm4XnASsfcQMH-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-23" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Список пользователей&lt;/font&gt;&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Шаблон(тип уведомления)&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Xp5XtxFnslbDERg0TUqt-21" vertex="1" connectable="0">
+          <mxGeometry x="0.0439" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-13" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;NSvxdNzsFa0G7ltl-WXG&quot;&gt;&lt;b&gt;Automatic Event Generator&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial; font-family: NSvxdNzsFa0G7ltl-WXG;&quot;&gt;(Scheduler, cron)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;NSvxdNzsFa0G7ltl-WXG&quot;&gt;(мб можно использовать&amp;nbsp;&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;NSvxdNzsFa0G7ltl-WXG&quot;&gt;https://huey.readthedocs.io&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-family: NSvxdNzsFa0G7ltl-WXG;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="34.5" y="286" width="291" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="Xp5XtxFnslbDERg0TUqt-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="179.9032258064517" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-15" value="&lt;div style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;b&gt;UGC&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;(лайки, коммент, рецензии)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=center;fillColor=#dae8fc;dashed=1;strokeColor=#3D506B;fillStyle=auto;opacity=50;" parent="1" vertex="1">
+          <mxGeometry x="95" y="756" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Xp5XtxFnslbDERg0TUqt-17" target="Xp5XtxFnslbDERg0TUqt-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-17" value="Manager" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="536" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-22" value="Postgres" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=16.168926841334326;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="150" y="401" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.995;entryY=0.578;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="O2XLF91sm4XnASsfcQMH-6" target="Xp5XtxFnslbDERg0TUqt-22" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="447" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="370" y="321" />
+              <mxPoint x="370" y="447" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-41" value="&lt;font face=&quot;Times New Roman&quot;&gt;Если все ок -&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font face=&quot;t5T_DB2BjbnVNwNE1sDd&quot;&gt;изменить last_send&lt;/font&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Xp5XtxFnslbDERg0TUqt-37" vertex="1" connectable="0">
+          <mxGeometry x="0.3942" y="-2" relative="1" as="geometry">
+            <mxPoint x="-25" y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Xp5XtxFnslbDERg0TUqt-2" target="Xp5XtxFnslbDERg0TUqt-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Xp5XtxFnslbDERg0TUqt-13" target="Xp5XtxFnslbDERg0TUqt-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-44" value="REDIS" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeColor=#d79b00;align=center;verticalAlign=middle;fontFamily=Times New Roman;fontSize=12;fillColor=#ffe6cc;" parent="1" vertex="1">
+          <mxGeometry x="150" y="620" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="O2XLF91sm4XnASsfcQMH-6" target="Xp5XtxFnslbDERg0TUqt-44" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="336" />
+              <mxPoint x="390" y="660" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-127" value="Получение пользовательских&lt;div&gt;событий&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Xp5XtxFnslbDERg0TUqt-46" vertex="1" connectable="0">
+          <mxGeometry x="0.6672" y="2" relative="1" as="geometry">
+            <mxPoint x="10" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-48" value="&lt;h2&gt;notifications&lt;/h2&gt;" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;fontFamily=Times New Roman;" parent="1" vertex="1">
+          <mxGeometry x="-759" y="150" width="310" height="260.0000000000002" as="geometry">
+            <mxRectangle x="-530" y="414" width="100" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-49" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" parent="Xp5XtxFnslbDERg0TUqt-48" vertex="1">
+          <mxGeometry y="30" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-50" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-49" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-51" value="&lt;span style=&quot;text-align: center; text-wrap: nowrap;&quot;&gt;id (uuid)&lt;/span&gt;" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-49" vertex="1">
+          <mxGeometry x="30" width="280" height="30" as="geometry">
+            <mxRectangle width="280" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-52" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-48" vertex="1">
+          <mxGeometry y="60" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-53" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-52" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-54" value="template_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-52" vertex="1">
+          <mxGeometry x="30" width="280" height="30" as="geometry">
+            <mxRectangle width="280" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-55" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-48" vertex="1">
+          <mxGeometry y="90" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-56" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-55" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-57" value="content_id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-55" vertex="1">
+          <mxGeometry x="30" width="280" height="30" as="geometry">
+            <mxRectangle width="280" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-75" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-48" vertex="1">
+          <mxGeometry y="120" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-76" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-75" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-77" value="content_value" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-75" vertex="1">
+          <mxGeometry x="30" width="280" height="30" as="geometry">
+            <mxRectangle width="280" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-78" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-48" vertex="1">
+          <mxGeometry y="150" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-79" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-78" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-80" value="last_update (datetime, прошлая отправка)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-78" vertex="1">
+          <mxGeometry x="30" width="280" height="30" as="geometry">
+            <mxRectangle width="280" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EbFvY4tbpr9wac_VPoKb-1" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-48" vertex="1">
+          <mxGeometry y="180" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EbFvY4tbpr9wac_VPoKb-2" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="EbFvY4tbpr9wac_VPoKb-1" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EbFvY4tbpr9wac_VPoKb-3" value="cron (если нету то единичное уведомление)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="EbFvY4tbpr9wac_VPoKb-1" vertex="1">
+          <mxGeometry x="30" width="280" height="30" as="geometry">
+            <mxRectangle width="280" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-100" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-48" vertex="1">
+          <mxGeometry y="210" width="310" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-101" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-100" vertex="1">
+          <mxGeometry width="30" height="40" as="geometry">
+            <mxRectangle width="30" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-102" value="users (список пользователей в формате uuid, или тэгов в формате str)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-100" vertex="1">
+          <mxGeometry x="30" width="280" height="40" as="geometry">
+            <mxRectangle width="280" height="40" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-61" value="&lt;h2&gt;templates&lt;/h2&gt;" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;fontFamily=Times New Roman;" parent="1" vertex="1">
+          <mxGeometry x="-375" y="199" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-62" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=1;" parent="Xp5XtxFnslbDERg0TUqt-61" vertex="1">
+          <mxGeometry y="30" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-63" value="PK" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;fontStyle=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-62" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-64" value="id" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;fontStyle=5;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-62" vertex="1">
+          <mxGeometry x="30" width="150" height="30" as="geometry">
+            <mxRectangle width="150" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-65" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-61" vertex="1">
+          <mxGeometry y="60" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-66" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-65" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-67" value="name" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-65" vertex="1">
+          <mxGeometry x="30" width="150" height="30" as="geometry">
+            <mxRectangle width="150" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-68" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-61" vertex="1">
+          <mxGeometry y="90" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-69" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-68" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-70" value="content" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-68" vertex="1">
+          <mxGeometry x="30" width="150" height="30" as="geometry">
+            <mxRectangle width="150" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-71" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;fillColor=none;collapsible=0;dropTarget=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="Xp5XtxFnslbDERg0TUqt-61" vertex="1">
+          <mxGeometry y="120" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-72" value="" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;editable=1;overflow=hidden;whiteSpace=wrap;html=1;" parent="Xp5XtxFnslbDERg0TUqt-71" vertex="1">
+          <mxGeometry width="30" height="30" as="geometry">
+            <mxRectangle width="30" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-73" value="last_update" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;fontFamily=Times New Roman;" parent="Xp5XtxFnslbDERg0TUqt-71" vertex="1">
+          <mxGeometry x="30" width="150" height="30" as="geometry">
+            <mxRectangle width="150" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Xp5XtxFnslbDERg0TUqt-52" target="Xp5XtxFnslbDERg0TUqt-62" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-105" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;∞&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;" parent="Xp5XtxFnslbDERg0TUqt-103" vertex="1" connectable="0">
+          <mxGeometry x="-0.6798" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-106" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Xp5XtxFnslbDERg0TUqt-103" vertex="1" connectable="0">
+          <mxGeometry x="0.5753" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-108" value="&lt;h1 style=&quot;text-align: center;&quot;&gt;PostgresDB&lt;/h1&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-550" y="80" width="150" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-109" value="&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;" style="rounded=0;whiteSpace=wrap;html=1;opacity=40;fillColor=#dae8fc;strokeColor=#6c8ebf;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" parent="1" vertex="1">
+          <mxGeometry x="-645" y="426" width="340" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-124" value="&lt;h1 style=&quot;text-align: center; margin-top: 0px;&quot;&gt;&lt;font face=&quot;Times New Roman&quot;&gt;Redis DB&lt;/font&gt;&lt;/h1&gt;&lt;h3 style=&quot;line-height: 50%;&quot;&gt;&lt;b&gt;&lt;u&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;Ключ:&lt;/font&gt;&lt;/u&gt;&lt;/b&gt;&lt;/h3&gt;&lt;p style=&quot;line-height: 50%;&quot;&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;&amp;lt;Тэг события&amp;gt;-&amp;lt;user_id&amp;gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 50%;&quot;&gt;&lt;font style=&quot;&quot; face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;пример: like-ee7c73b3-b0b8-4a82-97f5-c10aa9dd1614&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 50%;&quot;&gt;&lt;i&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/i&gt;&lt;/p&gt;&lt;h3 style=&quot;line-height: 50%;&quot;&gt;&lt;u&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;Значение:&lt;/font&gt;&lt;/u&gt;&lt;/h3&gt;&lt;p style=&quot;line-height: 50%;&quot;&gt;&lt;font style=&quot;&quot; face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;JSON&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 10%;&quot;&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;{&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 10%;&quot;&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;&quot;content_id&quot;: &quot;&lt;/font&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;ee7c73b3-b0b8-4a82-97f5-c10aa9dd1614&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-family: ftpmqenne--FMMSaPiho; background-color: initial;&quot;&gt;&quot;,&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 10%;&quot;&gt;&lt;span style=&quot;font-family: ftpmqenne--FMMSaPiho; background-color: initial;&quot;&gt;&quot;content_type&quot;: &quot;review&quot;,&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 10%;&quot;&gt;&lt;span style=&quot;font-family: ftpmqenne--FMMSaPiho; background-color: initial;&quot;&gt;...&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;line-height: 10%;&quot;&gt;&lt;font face=&quot;ftpmqenne--FMMSaPiho&quot;&gt;}&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;&lt;br&gt;&lt;/i&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-635" y="436" width="320" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-126" value="&lt;h1 style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-top: 0px; line-height: 40%;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; background-color: initial; font-size: 12px; font-weight: normal; font-family: MONh_1VmK5U7bihViy1n;&quot;&gt;- Воркер сам достает данные о пользователе, валидирует шаблон и рендерит письмо&amp;nbsp;&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none;&quot;&gt;&lt;/h1&gt;&lt;h1 style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: Helvetica; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; margin-top: 0px; line-height: 40%;&quot;&gt;&lt;span style=&quot;forced-color-adjust: none; background-color: initial; font-size: 12px; font-weight: normal; font-family: MONh_1VmK5U7bihViy1n;&quot;&gt;- Админка оперирует нотификациями и шаблонами в БД, реализует CRUD для них&lt;/span&gt;&lt;span style=&quot;forced-color-adjust: none; background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; font-size: 12px; font-weight: normal;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;forced-color-adjust: none; background-color: initial; font-family: &amp;quot;Times New Roman&amp;quot;; text-align: center; font-size: 12px; font-weight: normal;&quot;&gt;- Если событие работает с контентом, при отправке уведомления воркер изменяет поле&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;content_value в БД&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;- Уведомление можно отправить всем пользователям, только указанным или пользователям с указанным тегом&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;- Список пользователей по тэгу получать из сервиса Auth API (сейчас сервис этого не умеет, но подразумевается что будет уметь)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; background-color: initial;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="700" y="621" width="455" height="199" as="geometry" />
+        </mxCell>
+        <mxCell id="Xp5XtxFnslbDERg0TUqt-128" value="&lt;h1 style=&quot;&quot;&gt;Notification service&lt;/h1&gt;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="200" y="60" width="267" height="65" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
