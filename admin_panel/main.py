@@ -1,12 +1,9 @@
-from sqlalchemy import create_engine
 from starlette.applications import Starlette
 from starlette_admin.contrib.sqla import Admin, ModelView
-
+from database import engine
 from models import Todo
 
 app = Starlette()
-
-engine = create_engine('postgresql+psycopg2://app:qwe123@localhost:5432/notificationsdb')
 
 # Create an empty admin interface
 admin = Admin(engine, title='Tutorials: Basic')
