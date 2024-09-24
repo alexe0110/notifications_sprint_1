@@ -6,7 +6,7 @@ from models import Todo
 
 app = Starlette()
 
-engine = create_engine('sqlite:///kekdb', connect_args={'check_same_thread': False})
+engine = create_engine('postgresql+psycopg2://app:qwe123@localhost:5432/notificationsdb')
 
 # Create an empty admin interface
 admin = Admin(engine, title='Tutorials: Basic')

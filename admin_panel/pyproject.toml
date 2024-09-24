@@ -12,6 +12,9 @@ gunicorn = "^23.0.0"
 starlette-admin = "^0.14.1"
 sqlalchemy = "^2.0.35"
 uvicorn = "^0.30.6"
+pydantic = "^2.9.2"
+alembic = "^1.13.3"
+psycopg2 = "^2.9.9"
 
 
 [tool.poetry.group.dev.dependencies]
