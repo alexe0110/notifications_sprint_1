@@ -1,5 +1,4 @@
-CODE ?= ./src
-TESTS ?= ./tests
+CODE ?= .
 VENV ?= .venv
 
 init:
