@@ -1,8 +1,8 @@
 from starlette.applications import Starlette
 from starlette_admin.contrib.sqla import Admin, ModelView
 
-from database import engine
-from models import Todo
+from src.database import engine
+from src.models import Todo
 
 app = Starlette()
 

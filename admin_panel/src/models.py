@@ -16,5 +16,6 @@ class Todo(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str]
+    title2: Mapped[str] = mapped_column(default='kek', nullable=True)
     updated_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True, doc='Время обновления')
     done: Mapped[bool]
