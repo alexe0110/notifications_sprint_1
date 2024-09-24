@@ -1,19 +1,16 @@
-from datetime import datetime
-
-from sqlalchemy import DateTime, MetaData
+import sqlalchemy as sa
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
-metadata=MetaData()
+metadata = sa.MetaData()
 
 
 class Base(DeclarativeBase):
     metadata = metadata
 
 
-class Todo(Base):
-    __tablename__ = 'todo'
+class Templates(Base):
+    __tablename__ = 'template'
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    title: Mapped[str]
-    updated_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True, doc='Время обновления')
-    done: Mapped[bool]
+    name: Mapped[str] = mapped_column(sa.String, nullable=False, doc='Название шаблона')
+    content: Mapped[str] = mapped_column(sa.Text, nullable=True, doc='Jinja шаблон')
