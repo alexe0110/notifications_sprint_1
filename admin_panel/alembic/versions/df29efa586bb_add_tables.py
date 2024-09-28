@@ -1,8 +1,8 @@
-"""added tables
+"""add tables
 
-Revision ID: 1a370cd255bb
+Revision ID: df29efa586bb
 Revises:
-Create Date: 2024-09-26 11:28:14.049344
+Create Date: 2024-09-28 12:09:12.250392
 
 """
 
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 from alembic import op
 
 # revision identifiers, used by Alembic.
-revision: str = '1a370cd255bb'
+revision: str = 'df29efa586bb'
 down_revision: str | None = None
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
@@ -31,11 +31,12 @@ def upgrade() -> None:
     op.create_table(
         'notification',
         sa.Column('id', sa.UUID(), nullable=False),
+        sa.Column('name', sa.String(), nullable=False),
         sa.Column('template_id', sa.UUID(), nullable=False),
-        sa.Column('content_id', sa.UUID(), nullable=False),
-        sa.Column('content_value', sa.Text(), nullable=False),
+        sa.Column('content_id', sa.UUID(), nullable=True),
+        sa.Column('content_value', sa.String(), nullable=True),
         sa.Column('last_update', sa.DateTime(), nullable=False),
-        sa.Column('cron', sa.String(), nullable=False),
+        sa.Column('cron', sa.String(), nullable=True),
         sa.Column('users', sa.ARRAY(sa.String()), nullable=False),
         sa.ForeignKeyConstraint(
             ['template_id'],

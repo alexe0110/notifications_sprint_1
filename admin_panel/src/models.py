@@ -13,7 +13,7 @@ metadata = sa.MetaData()
 class UUIDString(TypeDecorator, ABC):
     impl = PG_UUID(as_uuid=True)
 
-    def process_bind_param(self, value, dialect):
+    def process_bind_param(self, value, dialect) -> sa.UUID | None:
         if value == '':
             return None
         return value

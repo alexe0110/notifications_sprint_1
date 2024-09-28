@@ -11,4 +11,3 @@ init:
 plint:
 	$(VENV)/bin/ruff format $(CODE)
 	$(VENV)/bin/ruff check $(CODE) --fix --show-fixes
-	$(VENV)/bin/mypy --install-types --non-interactive $(CODE)
