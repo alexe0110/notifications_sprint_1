@@ -1,0 +1,28 @@
+services:
+  automatic_event_generator_service:
+    build:
+      context: .
+    image: automatic_event_generator_service:local
+    env_file:
+      - ../.env
+    environment:
+      FLASK_APP: automatic_event_generator_service_container
+      DEBUG: ${EVENT_GENERATOR_DEBUG:-True}
+    volumes:
+      - ./data:/etc  # persistent data
+      # - automatic_event_generator_app_logs:/opt/app/event_generator/logs
+#    ports:
+#      - "5012:5000"
+
+
+  # automatic_event_generator_filebeat:
+  #   image: elastic/filebeat:8.10.2
+  #   entrypoint: filebeat -e -strict.perms=false
+  #   user: root
+  #   volumes:
+  #     - ./filebeat.yaml:/usr/share/filebeat/filebeat.yml:ro
+  #     - automatic_event_generator_app_logs:/var/app/log
+
+
+volumes:
+  automatic_event_generator_app_logs:

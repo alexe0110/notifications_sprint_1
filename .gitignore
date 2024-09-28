@@ -135,7 +135,6 @@ ipython_config.py
 #   This is especially recommended for binary packages to ensure reproducibility, and is more
 #   commonly ignored for libraries.
 #   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
 
 # pdm
 #   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
@@ -211,7 +210,12 @@ docker_compose_temp/*
 
 *.wt
 *.lock
+!poetry.lock
 *.bson
 *.turtle
 WiredTiger*
 diagnostic.data
+
+automatic_event_generator/bin
+automatic_event_generator/include
+automatic_event_generator/lib

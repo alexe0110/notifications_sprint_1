@@ -8,19 +8,24 @@ services:
   postgres:
     image: postgres:16.1
     restart: always
-    env_file: .env
+    # env_file: .env
+    environment:
+      LANG: C.UTF-8
+      POSTGRES_DB: linkyway
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
     # ...
 
-  redis:
-    image: redis:7.2.5
-    restart: always
-    env_file: .env
-    # ...
+  # redis:
+  #   image: redis:7.2.5
+  #   restart: always
+  #   env_file: .env
+  #   # ...
 
-  nginx:
-    image: nginx:1.25.5
-    ports:
-      - "80:80"
+  # nginx:
+  #   image: nginx:1.25.5
+  #   ports:
+  #     - "80:80"
 #    volumes:
 #      - ./nginx.conf:/etc/nginx/nginx.conf:ro
 #      - ugc_nginx_logs:/var/log/nginx
