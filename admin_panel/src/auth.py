@@ -46,13 +46,8 @@ class MyAuthProvider(AuthProvider):
         return False
 
     def get_admin_config(self, request: Request) -> AdminConfig:
-        user = request.state.user
-        custom_logo_url = None
-
-        if user.get('company_logo_url', None):
-            custom_logo_url = request.url_for('static', path=user['company_logo_url'])
         return AdminConfig(
-            logo_url=custom_logo_url,
+            logo_url=str(request.url_for('static', path='logo.svg')),
         )
 
     def get_admin_user(self, request: Request) -> AdminUser:
