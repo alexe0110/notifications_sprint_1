@@ -1,0 +1,7 @@
+services:
+  admin_panel:
+    build:
+      context: .
+#    ports:
+#      - "8000:8000"
+    command: ./run.sh
