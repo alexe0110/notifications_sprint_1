@@ -3,6 +3,8 @@ from starlette.responses import Response
 from starlette_admin.auth import AdminConfig, AdminUser, AuthProvider
 from starlette_admin.exceptions import FormValidationError, LoginFailed
 
+# Ужасный костыль, понимаю что надо бы хранитть данные о пользователе в БД и в зашифрованном виде
+# Но этот спринт не про это, поэтому решил не тратить время на схему аутентификации, использовал просто вариант из доки
 users = {
     'manager': {
         'name': 'manager',
@@ -24,11 +26,9 @@ class MyAuthProvider(AuthProvider):
         response: Response,
     ) -> Response:
         if len(username) < 3:
-            """Form data validation"""
             raise FormValidationError({'username': 'Ensure username has at least 03 characters'})
 
         if username in users and password == 'password':
-            """Save `username` in session"""
             request.session.update({'username': username})
             return response
 
@@ -36,10 +36,6 @@ class MyAuthProvider(AuthProvider):
 
     async def is_authenticated(self, request) -> bool:
         if request.session.get('username', None) in users:
-            """
-            Save current `user` object in the request state. Can be used later
-            to restrict access to connected user.
-            """
             request.state.user = users.get(request.session['username'])
             return True
 
@@ -51,7 +47,7 @@ class MyAuthProvider(AuthProvider):
         )
 
     def get_admin_user(self, request: Request) -> AdminUser:
-        user = request.state.user  # Retrieve current user
+        user = request.state.user
         photo_url = None
         if user['avatar'] is not None:
             photo_url = request.url_for('static', path=user['avatar'])

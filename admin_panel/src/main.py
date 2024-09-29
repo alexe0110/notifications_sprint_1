@@ -6,6 +6,7 @@ from starlette.staticfiles import StaticFiles
 from starlette_admin.contrib.sqla import Admin
 
 from src.auth import MyAuthProvider
+from src.config import settings
 from src.database import engine
 from src.models import Notification, Template
 from src.views import NotificationView, TemplateView
@@ -21,7 +22,7 @@ admin = Admin(
     statics_dir='static',
     login_logo_url='/admin/statics/logo.svg',  # base_url + '/statics/' + path_to_the_file
     auth_provider=MyAuthProvider(),
-    middlewares=[Middleware(SessionMiddleware, secret_key='my_super_secret_key')],
+    middlewares=[Middleware(SessionMiddleware, secret_key=settings.jwt.public_key)],
 )
 
 admin.add_view(TemplateView(Template, label='Шаблоны'))
