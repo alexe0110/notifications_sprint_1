@@ -29,7 +29,7 @@ class NotificationRepository:
                     SELECT
                         {', '.join(columns)}
                     FROM {self.TABLE_NAME}
-                    WHERE {self.FILTER_FIELD}::timestamp BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '1 hour'
+                    WHERE {self.FILTER_FIELD}::timestamp BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '5 minutes'
                     ORDER BY {self.SORT_FIELD} {self.SORT_BY}
                     LIMIT %(limit)s --Обрабатываем только одну пачку объектов.
                     OFFSET %(offset)s
