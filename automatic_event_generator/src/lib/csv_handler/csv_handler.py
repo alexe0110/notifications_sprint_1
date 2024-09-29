@@ -1,6 +1,6 @@
 import csv
 import os
-from typing import Any
+from typing import Any, Callable
 
 
 class CSVHandler:
@@ -61,3 +61,17 @@ class CSVHandler:
         with open(self.file_path, newline='', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             return list(reader)
+
+    def delete_rows(self, condition: Callable[[dict[str, Any]], bool]) -> None:
+        """
+        Удаляет строки из файла по заданному условию.
+        :param condition: Функция условия, которая принимает строку (словарь) и возвращает True, если строка должна быть удалена.
+        """
+        rows = self.read_all_rows()  # Читаем все строки
+        rows_to_keep = [row for row in rows if not condition(row)]  # Оставляем те строки, которые не соответствуют условию
+
+        # Перезаписываем файл новыми данными
+        with open(self.file_path, mode='w', newline='', encoding='utf-8') as file:
+            writer = csv.DictWriter(file, fieldnames=self.columns)
+            writer.writeheader()  # Записываем заголовки
+            writer.writerows(rows_to_keep)  # Записываем оставшиеся строки

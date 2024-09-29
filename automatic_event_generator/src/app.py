@@ -2,10 +2,10 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask import Flask
 
 from src.logger import logger
-from automatic_event_generator.src.service.repository.notification_repository import MetricsRepository
+from automatic_event_generator.src.service.repository.notification_repository import NotificationRepository
 from src.service.service_processor_job import ServiceProcessor
 
-from .app_config import clickhouse_connect, kafka_consumer, settings
+from src.app_config import settings, pg_connect
 
 app = Flask(__name__)
 
@@ -16,10 +16,11 @@ def health() -> str:
 
 
 proc = ServiceProcessor(
-    consumer=kafka_consumer(),
-    consumer_batch_size=settings.common.consume_batch_size,
-    transaction_batch_size=settings.common.transaction_batch_size,
-    repository=MetricsRepository(clickhouse_connect()),
+    repository=NotificationRepository(
+        pg=pg_connect(),
+        limit=settings.limit.select_transaction,
+    ),
+    notification_service_url=settings.notification.notification_service_url,
     hold_transactions_file_path=settings.common.hold_transactions_file_path,
     logger=logger,
 )

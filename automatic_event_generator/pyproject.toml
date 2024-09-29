@@ -10,15 +10,13 @@ packages = [{include = "src"}]
 [tool.poetry.dependencies]
 python = "^3.12"
 asyncio = "^3.4.3"
-clickhouse-driver = "^0.2.9"
 backoff = "^2.2.0"
 pydantic = "^2.6.4"
 flask = "^3.0.3"
-confluent-kafka = "^2.5.0"
 apscheduler = "^3.10.1"
 pydantic-settings = "^2.4.0"
 gunicorn = "^23.0.0"
-python-logstash = "^0.4.8"
+psycopg2-binary = "2.9.9"
 
 
 [tool.poetry.group.dev.dependencies]

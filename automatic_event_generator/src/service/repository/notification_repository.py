@@ -33,11 +33,8 @@ class NotificationRepository:
                     ORDER BY {self.SORT_FIELD} {self.SORT_BY}
                     LIMIT %(limit)s --Обрабатываем только одну пачку объектов.
                     OFFSET %(offset)s
-                """, {
-                    'target_timestamp': target_timestamp,
-                    'limit': self.limit,
-                    'offset': offset
-                }
+                """,
+                {'target_timestamp': target_timestamp, 'limit': self.limit, 'offset': offset},
             )
             objs = cur.fetchall()
         return objs
