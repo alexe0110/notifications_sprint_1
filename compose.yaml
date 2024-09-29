@@ -1,7 +1,7 @@
-#include:
+include:
 #  - notifications_api/compose.yml
 #  - kafka_cluster/compose.yml
-  # ...
+  - admin_panel/compose.yaml
 
 
 services:

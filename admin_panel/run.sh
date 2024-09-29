@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-uvicorn src.main:app --reload  --port 8000 --workers 2
+exec gunicorn src.main:app --workers 4 --access-logfile - --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000

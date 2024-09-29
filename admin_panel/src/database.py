@@ -1,3 +1,5 @@
 from sqlalchemy import create_engine
 
-engine = create_engine('postgresql+psycopg2://app:qwe123@localhost:5432/notificationsdb')
+from src.config import settings
+
+engine = create_engine(settings.pg.get_dsn())
