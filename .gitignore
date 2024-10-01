@@ -209,9 +209,9 @@ docker_compose_temp/*
 /deploy/esdata
 
 *.wt
+*.bson
 *.lock
 !poetry.lock
-*.bson
 *.turtle
 WiredTiger*
 diagnostic.data
