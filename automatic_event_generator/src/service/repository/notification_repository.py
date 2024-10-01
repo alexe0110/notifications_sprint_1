@@ -22,7 +22,11 @@ class NotificationRepository:
         offset: int,
         is_cron: bool = False,
     ) -> list[NotificationModel]:
-        cron_filter_sql = 'AND n.cron is not null' if is_cron else 'AND n.cron is null'
+        where_sql = (
+            'n.cron is not null'
+            if is_cron
+            else "{self.FILTER_FIELD}::timestamp BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '5 minutes' AND n.cron is null"
+        )
         order_by_sql = f'ORDER BY n.{self.SORT_FIELD} {self.SORT_BY}' if not is_cron else ''
 
         with self._db.connection() as conn, conn.cursor() as cur:
@@ -41,7 +45,7 @@ class NotificationRepository:
                         n.updated_at as updated_at
                     FROM {self.TABLE_NAME} as n
                     INNER JOIN template as t ON t.id = n.template_id
-                    WHERE {self.FILTER_FIELD}::timestamp BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '5 minutes' {cron_filter_sql} 
+                    WHERE {where_sql} 
                     {order_by_sql}
                     LIMIT %(limit)s --Обрабатываем только одну пачку объектов.
                     OFFSET %(offset)s
