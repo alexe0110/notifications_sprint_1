@@ -68,7 +68,9 @@ class CSVHandler:
         :param condition: Функция условия, которая принимает строку (словарь) и возвращает True, если строка должна быть удалена.
         """
         rows = self.read_all_rows()  # Читаем все строки
-        rows_to_keep = [row for row in rows if not condition(row)]  # Оставляем те строки, которые не соответствуют условию
+        rows_to_keep = [
+            row for row in rows if not condition(row)
+        ]  # Оставляем те строки, которые не соответствуют условию
 
         # Перезаписываем файл новыми данными
         with open(self.file_path, mode='w', newline='', encoding='utf-8') as file:

@@ -2,35 +2,17 @@ from pydantic import BaseModel, PostgresDsn
 from contextlib import contextmanager
 from typing import Generator
 
-import psycopg
-from psycopg import Connection
+import psycopg2
+from psycopg2 import connect
 
 
 class PgConnect(BaseModel):
-    host: str
-    port: int
-    db_name: str
-    user: str
-    password: str
-    sslmode: str | None = 'disable'
-
-    @property
-    def dsn(self) -> PostgresDsn:
-        """Создает строку подключения DSN для PostgreSQL."""
-        return PostgresDsn.build(
-            scheme='postgresql',
-            user=self.user,
-            password=self.password,
-            host=self.host,
-            port=str(self.port),
-            path=f'/{self.db_name}',
-            query={'sslmode': self.sslmode}
-        )
+    dsn: PostgresDsn
 
     @contextmanager
-    def connection(self) -> Generator[Connection, None, None]:
+    def connection(self) -> Generator[connect, None, None]:
         """Управляет подключением к базе данных."""
-        conn = psycopg.connect(str(self.dsn))
+        conn = psycopg2.connect(str(self.dsn))
         try:
             yield conn
             conn.commit()

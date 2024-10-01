@@ -2,11 +2,11 @@ from datetime import datetime
 import backoff
 
 from src.lib.pg import PgConnect
-from automatic_event_generator.src.service.repository.notification_model import NotificationModel
+from src.service.repository.notification_model import NotificationModel
 
 
 class NotificationRepository:
-    TABLE_NAME = 'notifications'
+    TABLE_NAME = 'notification'
     FILTER_FIELD = 'event_at'
     SORT_BY = 'ASC'
     SORT_FIELD = 'event_at'
@@ -20,21 +20,35 @@ class NotificationRepository:
         self,
         target_timestamp: datetime,
         offset: int,
+        is_cron: bool = False,
     ) -> list[NotificationModel]:
-        columns = list(NotificationModel.__fields__.keys())
+        cron_filter_sql = 'AND n.cron is not null' if is_cron else 'AND n.cron is null'
+        order_by_sql = f'ORDER BY n.{self.SORT_FIELD} {self.SORT_BY}' if not is_cron else ''
 
         with self._db.connection() as conn, conn.cursor() as cur:
             cur.execute(
                 f"""
                     SELECT
-                        {', '.join(columns)}
-                    FROM {self.TABLE_NAME}
-                    WHERE {self.FILTER_FIELD}::timestamp BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '5 minutes'
-                    ORDER BY {self.SORT_FIELD} {self.SORT_BY}
+                        n.id as event_id,
+                        n.type as event_type,
+                        n.event_at as event_at,
+                        n.template_id as template_id,
+                        t.name as template_name,
+                        t.content as template_content,
+                        n.payload as payload_for_template,
+                        n.users as user_ids,
+                        n.created_at as created_at,
+                        n.updated_at as updated_at
+                    FROM {self.TABLE_NAME} as n
+                    INNER JOIN template as t ON t.id = n.template_id
+                    WHERE {self.FILTER_FIELD}::timestamp BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '5 minutes' {cron_filter_sql} 
+                    {order_by_sql}
                     LIMIT %(limit)s --Обрабатываем только одну пачку объектов.
                     OFFSET %(offset)s
                 """,
                 {'target_timestamp': target_timestamp, 'limit': self.limit, 'offset': offset},
             )
             objs = cur.fetchall()
+
+            objs = [NotificationModel(**dict(row)) for row in objs]
         return objs

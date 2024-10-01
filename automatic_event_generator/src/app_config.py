@@ -1,11 +1,11 @@
-from pydantic import Field
+from pydantic import Field, PostgresDsn
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from src.lib.pg import PgConnect
 
 
 class CommonSettings(BaseSettings):
-    hold_transactions_file_path: str = Field(default='./data.csv', alias='HOLD_TRANSACTIONS_FILE_PATH')
+    hold_transactions_file_path: str = Field(default='/etc/hold_data.csv', alias='HOLD_TRANSACTIONS_FILE_PATH')
     default_job_interval: int = Field(default=25, alias='DEFAULT_JOB_INTERVAL')
 
 
@@ -17,13 +17,24 @@ class ELKSettings(BaseSettings):
 
 
 class PgSettings(BaseSettings):
-    dbname: str
+    db: str
     user: str
     password: str
     host: str
     port: int
 
-    model_config = SettingsConfigDict(env_prefix='PG_')
+    model_config = SettingsConfigDict(env_prefix='POSTGRES_')
+
+    @property
+    def get_dsn(self) -> str:
+        return PostgresDsn.build(
+            scheme='postgresql',
+            username=self.user,
+            password=self.password,
+            host=self.host,
+            port=self.port,
+            path=self.db,
+        ).unicode_string()
 
 
 class LimitSettings(BaseSettings):
@@ -56,9 +67,5 @@ settings = Settings()
 
 def pg_connect() -> PgConnect:
     return PgConnect(
-        dbname=settings.pg.dbname,
-        user=settings.pg.user,
-        password=settings.pg.password,
-        host=settings.pg.host,
-        port=settings.pg.port,
+        dsn=settings.pg.get_dsn,
     )
