@@ -132,4 +132,10 @@ class ServiceProcessor:
     def __is_time_to_run(self, cron_expression, current_time):
         """Проверяет, совпадает ли текущее время с cron выражением."""
         cron = croniter(cron_expression, current_time)
-        return cron.get_next(datetime) <= current_time < cron.get_next(datetime)
+
+        # Получаем следующее время выполнения
+        next_run = cron.get_next(datetime)
+
+        # Проверяем, попадает ли текущее время в диапазон от следующего выполнения
+        # до следующего выполнения + 15 секунд
+        return next_run - datetime.timedelta(seconds=15) <= current_time < next_run + datetime.timedelta(seconds=15)
