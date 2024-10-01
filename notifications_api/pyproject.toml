@@ -7,6 +7,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.115.0"}
+kafka-python = "^2.0.2"
+orjson = "^3.10.7"
 
 
 [tool.poetry.group.dev.dependencies]
