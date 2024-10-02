@@ -39,6 +39,8 @@ class Notification(Base):
 
     id: Mapped[uuid.UUID] = mapped_column(PG_UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     type: Mapped[str] = mapped_column(sa.String, nullable=False, server_default='email')
+    name: Mapped[str] = mapped_column(sa.String, nullable=False)
+    template_id: Mapped[uuid.UUID] = mapped_column(PG_UUID(as_uuid=True), sa.ForeignKey('template.id'), nullable=False)
     payload: Mapped[dict] = mapped_column(sa.JSON, nullable=True)
     users: Mapped[list[str]] = mapped_column(sa.ARRAY(sa.String), nullable=False)
     event_at: Mapped[sa.DateTime] = mapped_column(sa.DateTime, nullable=True, default=datetime.now)

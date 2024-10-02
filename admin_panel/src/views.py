@@ -21,4 +21,5 @@ class TemplateView(MyModelView):
 
 
 class NotificationView(MyModelView):
-    exclude_fields_from_list = ['content_id', 'content_value']
+    pass
+    # exclude_fields_from_list = ['content_id', 'content_value']
