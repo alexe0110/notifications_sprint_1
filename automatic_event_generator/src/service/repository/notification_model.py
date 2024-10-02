@@ -1,6 +1,7 @@
 from datetime import datetime
+from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class NotificationModel(BaseModel):
@@ -8,7 +9,7 @@ class NotificationModel(BaseModel):
     event_type: str = Field(description='Тип события (email)')
     event_at: datetime | None = Field(description='Время отправки события')
     template_id: str = Field(description='Идентификатор шаблона')
-    tempalte_name: str = Field(description='Название шаблона')
+    template_name: str = Field(description='Название шаблона')
     template_content: str = Field(description='Содержимое шаблона')
     payload_for_template: dict = Field(description='Данные для шаблона')
     user_ids: list = Field(description='Идентификатор пользователя')

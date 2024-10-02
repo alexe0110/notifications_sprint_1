@@ -46,32 +46,34 @@ class ServiceProcessor:
 
         current_time = datetime.utcnow()
 
+        prepared_rows_count = 0
         last_rows_count = 1
         while last_rows_count > 0:
-            ids_worked = {row['id']: row for row in self._csv_handler.read_all_rows()}
+            try:
+                ids_worked = {row['event_id']: True for row in self._csv_handler.read_all_rows()}
+                self._logger.info(f'ids_worked{datetime.utcnow()}: {ids_worked}')
 
-            count_rows = len(ids_worked.keys())
-            rows = self._repository.select_notifications(
-                target_timestamp=current_time,
-                offset=count_rows,
-                is_cron=False,
-            )
+                rows = self._repository.select_notifications(
+                    target_timestamp=current_time, offset=prepared_rows_count, is_cron=False
+                )
 
-            last_rows_count = len(rows)
+                last_rows_count = len(rows)
+                prepared_rows_count += last_rows_count
 
-            prepared_rows = []
+                for row in rows:
+                    if row.event_id in ids_worked:
+                        continue
+                    try:
+                        self.__send_to_notification_service(row)
+                        self._csv_handler.write_row(row.__dict__)
+                    except Exception as e:
+                        self._logger.error(f'Ошибка при обработки строки {datetime.utcnow()}: {e}')
+                        continue
 
-            for row in rows:
-                if row['id'] in ids_worked:
-                    continue
-                try:
-                    self.__send_to_notification_service(row)
-                    prepared_rows.append(row)
-                except Exception as e:
-                    self._logger.error(f'{datetime.utcnow()}: {e}')
-                    continue
-
-            self._csv_handler.write_row(prepared_rows)
+            except Exception as e:
+                last_rows_count = 0
+                self._logger.error(f'{datetime.utcnow()}: {e}')
+                continue
 
         self._logger.info(f'{datetime.utcnow()}: FINISH')
 
@@ -85,22 +87,25 @@ class ServiceProcessor:
         prepared_rows_count = 0
         last_rows_count = 1
         while last_rows_count > 0:
-            rows = self._repository.select_notifications(
-                target_timestamp=current_time,
-                offset=prepared_rows_count,
-                is_cron=True,
-            )
+            try:
+                rows = self._repository.select_notifications(
+                    target_timestamp=current_time, offset=prepared_rows_count, is_cron=True
+                )
 
-            last_rows_count = len(rows)
-            prepared_rows_count += len(rows)
+                last_rows_count = len(rows)
+                prepared_rows_count += last_rows_count
 
-            for row in rows:
-                try:
-                    if self.__is_time_to_run(row.cron, current_time):
-                        self.__send_to_notification_service(row)
-                except Exception as e:
-                    self._logger.error(f'{datetime.utcnow()}: {e}')
-                    continue
+                for row in rows:
+                    try:
+                        if self.__is_time_to_run(row.cron, current_time):
+                            self.__send_to_notification_service(row)
+                    except Exception as e:
+                        self._logger.error(f'{datetime.utcnow()}: {e}')
+                        continue
+            except Exception as e:
+                last_rows_count = 0
+                self._logger.error(f'{datetime.utcnow()}: {e}')
+                continue
 
         self._logger.info(f'{datetime.utcnow()}: FINISH CRON')
 
@@ -121,13 +126,16 @@ class ServiceProcessor:
         try:
             response = requests.post(
                 self.notification_service_url,
-                json=row,  # Используем JSON для отправки данных
+                json=row.json(),  # Используем JSON для отправки данных
                 timeout=10,  # Устанавливаем таймаут на запрос
             )
             response.raise_for_status()  # Вызываем ошибку, если статус-код не является 2xx
             self._logger.info(f'Уведомление успешно отправлено: {response.json()}')
         except requests.exceptions.RequestException as e:
-            self._logger.error(f'Ошибка при отправке уведомления: {e}')
+            self._logger.error(f'Ошибка Request при отправке уведомления: {e}')
+        except Exception as e:
+            self._logger.error(f'Общая ошибка при отправке уведомления: {e}')
+            raise e
 
     def __is_time_to_run(self, cron_expression, current_time):
         """Проверяет, совпадает ли текущее время с cron выражением."""
