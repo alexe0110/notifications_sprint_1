@@ -1,3 +1,4 @@
+import os
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 from alembic import context
@@ -47,7 +48,7 @@ def run_migrations_online() -> None:
     В этом сценарии нам нужно создать Engine
     и ассоциировать соединение с контекстом.
     """
-    with engine.connect() as connection:  # Используйте импортированный движок
+    with engine.connect() as connection:  # Используем импортированный движок
         context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
