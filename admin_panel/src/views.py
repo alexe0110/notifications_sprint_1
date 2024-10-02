@@ -6,6 +6,9 @@ from starlette_admin.exceptions import FormValidationError
 
 
 class MyModelView(ModelView):
+    exclude_fields_from_edit = ['created_at', 'updated_at']
+    exclude_fields_from_create = ['created_at', 'updated_at']
+
     def can_view_details(self, request: Request) -> bool:
         return 'read' in request.state.user['roles']
 
