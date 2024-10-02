@@ -2,7 +2,9 @@ import logging
 import pickle
 from datetime import datetime
 from http import HTTPStatus
-from fastapi import APIRouter, HTTPException
+
+from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
 from pydantic import BaseModel, Field
@@ -10,6 +12,7 @@ from pydantic import BaseModel, Field
 router = APIRouter()
 producer = KafkaProducer(bootstrap_servers=settings.kafka.bootstrap_servers)
 logger = logging.getLogger(__name__)
+access_token_header = HTTPBearer()
 
 
 class NotificationModel(BaseModel):
@@ -27,7 +30,10 @@ class NotificationModel(BaseModel):
 
 
 @router.post('/', description='Send notification to Kafka')
-async def record_notification(notification: NotificationModel):
+async def record_notification(
+    notification: NotificationModel,
+    token: HTTPAuthorizationCredentials = Depends(access_token_header),
+):
     try:
         result = producer.send(
             settings.kafka.topic,

@@ -1,6 +1,14 @@
 services:
   notifications_api:
+    build:
+      context: .
     image: python:3.12
-#    ports:
-#      - "8001:8000"
-    command: python3 -m http.server
+    ports:
+      - "8001:8000"
+    env_file: ../.env
+  nginx:
+    build: ./nginx/
+    ports:
+    - 80:80
+    depends_on:
+    - notifications_api
