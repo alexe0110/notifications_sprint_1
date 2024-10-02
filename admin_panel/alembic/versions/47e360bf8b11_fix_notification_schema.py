@@ -5,17 +5,19 @@ Revises: df29efa586bb
 Create Date: 2024-10-02 12:26:49.653249
 
 """
-from typing import Sequence, Union
 
-from alembic import op
+from collections.abc import Sequence
+
 import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
+from alembic import op
+
 # revision identifiers, used by Alembic.
 revision: str = '47e360bf8b11'
-down_revision: Union[str, None] = 'df29efa586bb'
-branch_labels: Union[str, Sequence[str], None] = None
-depends_on: Union[str, Sequence[str], None] = None
+down_revision: str | None = 'df29efa586bb'
+branch_labels: str | Sequence[str] | None = None
+depends_on: str | Sequence[str] | None = None
 
 
 def upgrade() -> None:
@@ -23,8 +25,12 @@ def upgrade() -> None:
     op.add_column('notification', sa.Column('type', sa.String(), server_default='email', nullable=False))
     op.add_column('notification', sa.Column('payload', sa.JSON(), nullable=True))
     op.add_column('notification', sa.Column('event_at', sa.DateTime(), nullable=True))
-    op.add_column('notification', sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False))
-    op.add_column('notification', sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False))
+    op.add_column(
+        'notification', sa.Column('updated_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False)
+    )
+    op.add_column(
+        'notification', sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=False)
+    )
     op.drop_column('notification', 'content_id')
     op.drop_column('notification', 'last_update')
     op.drop_column('notification', 'content_value')
