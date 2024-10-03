@@ -47,6 +47,8 @@ services:
       - kafka-2
     volumes:
       - ./prepare_kafka.sh:/usr/local/bin/prepare_kafka.sh
+    env_file:
+      - ../.env
     entrypoint: [ "/bin/bash", "/usr/local/bin/prepare_kafka.sh" ]
 
   kafka-ui:

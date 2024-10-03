@@ -38,7 +38,8 @@ class CSVHandler:
         :raises ValueError: Если ключи не соответствуют колонкам.
         """
         if set(data.keys()) != set(self.columns):
-            raise ValueError(f'Ключи должны быть: {self.columns}')
+            not_known_columns = set(self.columns) - set(data.keys())
+            raise ValueError(f'Не хватает ключей: {not_known_columns}, пришли: {data.keys()}')
 
         with open(self.file_path, mode='a', newline='', encoding='utf-8') as file:
             writer = csv.DictWriter(file, fieldnames=self.columns)

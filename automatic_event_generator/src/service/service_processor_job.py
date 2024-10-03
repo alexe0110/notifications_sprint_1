@@ -3,6 +3,7 @@ from logging import Logger
 from typing import Any
 import requests
 from croniter import croniter
+from pydantic import BaseModel, Field
 
 
 from src.lib.csv_handler import CSVHandler
@@ -10,6 +11,30 @@ from src.service.repository.notification_repository import (
     NotificationModel,
     NotificationRepository,
 )
+
+
+class RequestNotification(BaseModel):
+    event_id: str = Field(description='Идентификатор события')
+    event_type: str = Field(description='Тип события (email)')
+    event_at: datetime | None = Field(description='Время отправки события')
+    template_id: str = Field(description='Идентификатор шаблона')
+    template_name: str = Field(description='Название шаблона')
+    template_content: str = Field(description='Содержимое шаблона')
+    payload_for_template: dict = Field(description='Данные для шаблона')
+    user_ids: list = Field(description='Идентификатор пользователя')
+    created_at: datetime = Field(description='Время создания события')
+    updated_at: datetime = Field(description='Время обновления события')
+
+    def dict(self, *args, **kwargs) -> dict[str, Any]:
+        # Получаем стандартное словарь от BaseModel
+        original_dict = super().dict(*args, **kwargs)
+
+        # Проходим по всем ключам и преобразуем datetime в строку
+        for key, value in original_dict.items():
+            if isinstance(value, datetime):
+                original_dict[key] = value.isoformat()
+
+        return original_dict
 
 
 class ServiceProcessor:
@@ -97,7 +122,15 @@ class ServiceProcessor:
 
                 for row in rows:
                     try:
-                        if self.__is_time_to_run(row.cron, current_time):
+                        if row.cron is None or row.cron == '':
+                            continue
+
+                        is_run, event_at = self.__is_time_to_run(row.cron, current_time)
+
+                        if is_run:
+                            row.event_at = event_at
+                            del row.cron
+
                             self.__send_to_notification_service(row)
                     except Exception as e:
                         self._logger.error(f'{datetime.utcnow()}: {e}')
@@ -123,16 +156,19 @@ class ServiceProcessor:
     def __send_to_notification_service(self, row: dict[str, Any]) -> None:
         """Отправляет событие в сервис уведомлений."""
 
+        notification_request = RequestNotification(**row.dict())
+
         try:
             response = requests.post(
                 self.notification_service_url,
-                json=row.json(),  # Используем JSON для отправки данных
+                json=notification_request.dict(),  # Используем JSON для отправки данных
                 timeout=10,  # Устанавливаем таймаут на запрос
             )
             response.raise_for_status()  # Вызываем ошибку, если статус-код не является 2xx
             self._logger.info(f'Уведомление успешно отправлено: {response.json()}')
         except requests.exceptions.RequestException as e:
-            self._logger.error(f'Ошибка Request при отправке уведомления: {e}')
+            self._logger.error(f'Ошибка Request при отправке уведомления: {e} {e.response.text}')
+            raise e
         except Exception as e:
             self._logger.error(f'Общая ошибка при отправке уведомления: {e}')
             raise e
@@ -146,4 +182,5 @@ class ServiceProcessor:
 
         # Проверяем, попадает ли текущее время в диапазон от следующего выполнения
         # до следующего выполнения + 15 секунд
-        return next_run - datetime.timedelta(seconds=15) <= current_time < next_run + datetime.timedelta(seconds=15)
+        is_time = next_run - datetime.timedelta(seconds=15) <= current_time < next_run + datetime.timedelta(seconds=15)
+        return is_time, next_run
