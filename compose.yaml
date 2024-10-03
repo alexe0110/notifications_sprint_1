@@ -1,6 +1,7 @@
 include:
   - notifications_api/compose.yaml
   - automatic_event_generator/compose.yaml
+  - kafka_cluster/compose.yaml
   - admin_panel/compose.yaml
 
 
