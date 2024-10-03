@@ -9,11 +9,20 @@ from kafka import KafkaProducer
 from kafka.errors import KafkaError
 from pydantic import BaseModel, Field
 from config import settings
+import backoff
+from kafka.errors import NoBrokersAvailable
 
 router = APIRouter()
-producer = KafkaProducer(bootstrap_servers=settings.kafka.bootstrap_servers)
 logger = logging.getLogger(__name__)
 access_token_header = HTTPBearer()
+
+
+@backoff.on_exception(backoff.expo, exception=NoBrokersAvailable)
+def get_kafka_producer() -> KafkaProducer:
+    return KafkaProducer(bootstrap_servers=settings.kafka.bootstrap_servers)
+
+
+producer = get_kafka_producer()
 
 
 class NotificationModel(BaseModel):
@@ -32,8 +41,8 @@ class NotificationModel(BaseModel):
 
 @router.post('/', description='Send notification to Kafka')
 async def record_notification(
-    notification: NotificationModel,
-    token: HTTPAuthorizationCredentials = Depends(access_token_header),
+        notification: NotificationModel,
+        token: HTTPAuthorizationCredentials = Depends(access_token_header),
 ):
     try:
         result = producer.send(
