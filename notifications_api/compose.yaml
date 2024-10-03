@@ -2,7 +2,6 @@ services:
   notifications_api:
     build:
       context: .
-    image: python:3.12
     ports:
       - "8001:8000"
     env_file: ../.env

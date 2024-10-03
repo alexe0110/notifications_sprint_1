@@ -8,6 +8,7 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from kafka import KafkaProducer
 from kafka.errors import KafkaError
 from pydantic import BaseModel, Field
+from config import settings
 
 router = APIRouter()
 producer = KafkaProducer(bootstrap_servers=settings.kafka.bootstrap_servers)

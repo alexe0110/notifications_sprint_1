@@ -1,6 +1,6 @@
 include:
   - notifications_api/compose.yaml
-#  - kafka_cluster/compose.yml
+  - kafka_cluster/compose.yaml
   - admin_panel/compose.yaml
 
 
@@ -14,23 +14,17 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
 
-#  redis:
-#    image: redis:7.2.5
-#    restart: always
-#    env_file: .env
-#    # ...
-#
 
-  nginx:
-    image: nginx:1.25.5
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - static_volume:/data/static
-    depends_on:
-      - notifications_api
-      - admin_panel
+#  nginx:
+#    image: nginx:1.25.5
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+#      - static_volume:/data/static
+#    depends_on:
+#      - notifications_api
+#      - admin_panel
 
 volumes:
   pg_data:
