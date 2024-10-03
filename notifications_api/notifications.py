@@ -3,16 +3,26 @@ import pickle
 from datetime import datetime
 from http import HTTPStatus
 
+import backoff
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi.security import HTTPBearer
 from kafka import KafkaProducer
-from kafka.errors import KafkaError
+from kafka.errors import KafkaError, NoBrokersAvailable
 from pydantic import BaseModel, Field
 
-router = APIRouter()
-producer = KafkaProducer(bootstrap_servers=settings.kafka.bootstrap_servers)
+from config import settings
+
 logger = logging.getLogger(__name__)
 access_token_header = HTTPBearer()
+router = APIRouter(dependencies=[Depends(access_token_header)])
+
+
+@backoff.on_exception(backoff.expo, exception=NoBrokersAvailable)
+def get_kafka_producer() -> KafkaProducer:
+    return KafkaProducer(bootstrap_servers=settings.kafka.bootstrap_servers)
+
+
+producer = get_kafka_producer()
 
 
 class NotificationModel(BaseModel):
@@ -32,7 +42,6 @@ class NotificationModel(BaseModel):
 @router.post('/', description='Send notification to Kafka')
 async def record_notification(
     notification: NotificationModel,
-    token: HTTPAuthorizationCredentials = Depends(access_token_header),
 ):
     try:
         result = producer.send(
