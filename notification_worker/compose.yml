@@ -1,0 +1,5 @@
+services:
+  notification_worker:
+    build:
+      context: .
+    env_file: ../.env

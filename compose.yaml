@@ -2,6 +2,7 @@ include:
   - notifications_api/compose.yaml
   - kafka_cluster/compose.yaml
   - admin_panel/compose.yaml
+  - notification_worker/compose.yaml
 
 
 services:
@@ -31,6 +32,7 @@ services:
     depends_on:
       - notifications_api
       - admin_panel
+      - notification_worker
 
 volumes:
   pg_data:
