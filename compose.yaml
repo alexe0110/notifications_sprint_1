@@ -32,6 +32,7 @@ services:
     depends_on:
       - notifications_api
       - admin_panel
+      - notification_worker
 
 volumes:
   pg_data:
