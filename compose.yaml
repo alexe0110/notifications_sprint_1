@@ -2,6 +2,7 @@ include:
   - notifications_api/compose.yaml
   - kafka_cluster/compose.yaml
   - admin_panel/compose.yaml
+  - notification_worker/compose.yaml
 
 
 services:
