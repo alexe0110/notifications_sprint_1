@@ -32,13 +32,13 @@ class Notification(Base):
     template_id: Mapped[uuid.UUID] = mapped_column(PG_UUID(as_uuid=True), sa.ForeignKey('template.id'), nullable=False)
     payload: Mapped[dict] = mapped_column(sa.JSON, nullable=True)
     users: Mapped[list[str]] = mapped_column(sa.ARRAY(sa.String), nullable=False)
-    event_at: Mapped[sa.DateTime] = mapped_column(sa.DateTime(timezone=True), nullable=True)
+    event_at: Mapped[sa.DateTime] = mapped_column(sa.DateTime, nullable=True)
     cron: Mapped[str] = mapped_column(sa.String, nullable=True)
     updated_at: Mapped[sa.DateTime] = mapped_column(
-        sa.DateTime(timezone=True), nullable=False, default=datetime.now, server_default=func.now(), onupdate=func.now()
+        sa.DateTime, nullable=False, default=datetime.now, server_default=func.now(), onupdate=func.now()
     )
     created_at: Mapped[sa.DateTime] = mapped_column(
-        sa.DateTime(timezone=True), nullable=False, default=datetime.now, server_default=func.now()
+        sa.DateTime, nullable=False, default=datetime.now, server_default=func.now()
     )
 
     template: Mapped['Template'] = relationship(back_populates='notifications')
