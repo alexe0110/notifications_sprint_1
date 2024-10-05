@@ -1,0 +1,19 @@
+services:
+  automatic_event_generator_service:
+    build:
+      context: .
+    image: automatic_event_generator_service:local
+    env_file:
+      - ../.env
+    environment:
+      FLASK_APP: automatic_event_generator_service_container
+      DEBUG: ${EVENT_GENERATOR_DEBUG:-False}
+    volumes:
+      - ./data:/etc  # persistent data
+#    ports:
+#      - "5012:5000"
+
+
+
+volumes:
+  automatic_event_generator_app_logs:

@@ -3,7 +3,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class KafkaSettings(BaseSettings):
     bootstrap_servers: list[str]
-    topic: str
+    topic_email_notification: str
+    topic_websocket_notification: str
 
     model_config = SettingsConfigDict(env_prefix='KAFKA_')
 

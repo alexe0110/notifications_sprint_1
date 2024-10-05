@@ -1,0 +1,9 @@
+dockerfile
+.venv
+DockerFile
+docker-compose.yaml
+__pycache__/
+.gitignore
+README.md
+ruff.toml
+.ruff_cache
