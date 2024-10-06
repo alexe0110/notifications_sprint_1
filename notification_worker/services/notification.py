@@ -5,7 +5,7 @@ from logging import Logger
 from schemas.notification import NotificationSchemaIn
 
 
-class NotificationService():
+class NotificationService:
     def __init__(self, transport: AbstractTransport, logger: Logger) -> None:
         self.transport = transport
         self.logger = logger
