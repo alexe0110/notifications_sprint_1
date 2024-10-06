@@ -25,6 +25,7 @@ class EmailTransport(AbstractTransport):
         email["From"] = self.from_addr
         email.add_alternative(message, subtype='html')
 
+        await self.client.connect(use_tls=True)
         await self.client.login(self.credentials['username'], self.credentials['password'])
 
         try:
