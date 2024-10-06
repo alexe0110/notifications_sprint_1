@@ -4,8 +4,7 @@ from datetime import datetime
 from http import HTTPStatus
 
 import backoff
-from fastapi import APIRouter, Depends, HTTPException
-from fastapi.security import HTTPBearer
+from fastapi import APIRouter, HTTPException
 from kafka import KafkaProducer
 from kafka.errors import KafkaError, NoBrokersAvailable
 from pydantic import BaseModel, Field
@@ -54,7 +53,7 @@ async def record_notification(
         if notification.event_type not in SUPPORTED_EVENT_TYPES:
             raise HTTPException(
                 status_code=HTTPStatus.BAD_REQUEST,
-                detail=f'Invalid event type. Supported types: {', '.join(SUPPORTED_EVENT_TYPES)}',
+                detail=f"Invalid event type. Supported types: {', '.join(SUPPORTED_EVENT_TYPES)}",
             )
 
         topic = SUPPORTED_EVENTS[notification.event_type]
