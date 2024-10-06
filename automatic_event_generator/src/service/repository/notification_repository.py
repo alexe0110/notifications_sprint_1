@@ -26,7 +26,10 @@ class NotificationRepository:
         where_sql = (
             "n.cron is not null AND n.cron != ''"
             if is_cron
-            else f"{self.FILTER_FIELD} is not null and {self.FILTER_FIELD} BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '30 minutes'"
+            else (
+                f"{self.FILTER_FIELD} is not null and {self.FILTER_FIELD} "
+                "BETWEEN %(target_timestamp)s AND %(target_timestamp)s + INTERVAL '30 minutes'"
+            )
         )
         order_by_sql = f'ORDER BY {self.SORT_FIELD} {self.SORT_BY}' if not is_cron else ''
 
@@ -47,7 +50,7 @@ class NotificationRepository:
                         n.updated_at as updated_at
                     FROM {self.TABLE_NAME} as n
                     INNER JOIN template as t ON t.id = n.template_id
-                    WHERE {where_sql} 
+                    WHERE {where_sql}
                     {order_by_sql}
                     LIMIT %(limit)s --Обрабатываем только одну пачку объектов.
                     OFFSET %(offset)s

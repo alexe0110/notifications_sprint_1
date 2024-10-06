@@ -66,7 +66,8 @@ class CSVHandler:
     def delete_rows(self, condition: Callable[[dict[str, Any]], bool]) -> None:
         """
         Удаляет строки из файла по заданному условию.
-        :param condition: Функция условия, которая принимает строку (словарь) и возвращает True, если строка должна быть удалена.
+        :param condition: Функция условия, которая принимает строку (словарь) и возвращает True,
+        если строка должна быть удалена.
         """
         rows = self.read_all_rows()  # Читаем все строки
         rows_to_keep = [

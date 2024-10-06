@@ -1,6 +1,4 @@
-import os
 from logging.config import fileConfig
-from sqlalchemy import engine_from_config, pool
 from alembic import context
 from src.models import metadata
 from src.database import engine  # Импортируем движок из database.py
