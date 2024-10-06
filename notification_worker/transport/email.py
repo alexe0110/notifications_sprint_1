@@ -1,5 +1,5 @@
 import asyncio
-import smtplib
+import aiosmtplib
 from email.message import EmailMessage
 from .abstract import AbstractTransport
 from config import settings
@@ -8,7 +8,7 @@ from config import settings
 class EmailTransport(AbstractTransport):
     def __init__(self, server_conf: dict, credentials: dict, from_addr: str) -> None:
         self.from_addr = from_addr
-        self.client = smtplib.SMTP_SSL(**server_conf)
+        self.client = aiosmtplib.SMTP(**server_conf)
         self.credentials = credentials
 
     async def get_user_email(self, user_uuid: str):
@@ -25,15 +25,11 @@ class EmailTransport(AbstractTransport):
         email["From"] = self.from_addr
         email.add_alternative(message, subtype='html')
 
-        self.client.login(**self.credentials)
+        await self.client.login(self.credentials['username'], self.credentials['password'])
 
         try:
-            self.client.sendmail(
-                from_addr=self.from_addr,
-                to_addrs=to_addrs,
-                msg=email.as_string()
-            )
-        except smtplib.SMTPException as exc:
+            await self.client.sendmail(self.from_addr, to_addrs, email.as_string())
+        except aiosmtplib.SMTPException as exc:
             reason = f'{type(exc).__name__}: {exc}'
             print(f'Не удалось отправить письмо. {reason}')
         finally:

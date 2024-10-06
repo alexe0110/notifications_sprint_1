@@ -17,11 +17,11 @@ async def consume_email_notifications(consumer: AIOKafkaConsumer):
     service = NotificationService(
         transport=EmailTransport(
             server_conf={
-                'host': settings.notification.email_server_host,
+                'hostname': settings.notification.email_server_host,
                 'port': settings.notification.email_server_port
             },
             credentials={
-                'user': settings.notification.email_user,
+                'username': settings.notification.email_user,
                 'password': settings.notification.email_password
             },
             from_addr=settings.notification.email_from_addr
